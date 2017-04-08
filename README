@@ -1,0 +1,5 @@
+Delta Gapps README
+
+gapps-base.sh - used to decompress google play services libraries with STORE compression and realign the packages (32bit package)
+gapps64-base.sh - used to decompress google play services libraries with STORE compression and realign the packages (64bit package)
+makezipsign.sh - used to create main flashable zip installation package (usage: makezipsign.sh {dirname}) Example: makezipsign.sh gapps64-base 
