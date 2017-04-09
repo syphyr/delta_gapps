@@ -36,24 +36,25 @@ if [ ! -d lib/armeabi-v7a ] && [ ! -d lib/armeabi ] ; then
   echo "Libraries are not for arm"
 else
 
-mkdir ./lib/arm
-mkdir ./lib.old/arm
-
 if [ -d lib.old/armeabi-v7a ] ; then
+  mkdir ./lib.old/arm
   cp -a ./lib.old/armeabi-v7a/* ./lib.old/arm/
   rm -rf  ./lib.old/armeabi-v7a
 else
+  mkdir ./lib.old/arm
   cp -a ./lib.old/armeabi/* ./lib.old/arm/
   rm -rf ./lib.old/armeabi
 fi
 
 if [ -d lib/armeabi-v7a ] ; then
+  mkdir ./lib/arm
   mv ./lib/armeabi-v7a/* ./lib/arm/
   rmdir ./lib/armeabi-v7a
   echo "Deleting lib directory inside apk file"
   zip "$FILE" -d lib/armeabi-v7a/*
   cp -a ./lib/arm/* ../lib/
 else
+  mkdir ./lib/arm
   mv ./lib/armeabi/* ./lib/arm/
   rmdir ./lib/armeabi
   echo "Deleting lib directory inside apk file"
