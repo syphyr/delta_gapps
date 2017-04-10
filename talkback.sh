@@ -1,0 +1,36 @@
+#!/bin/bash
+
+FILEPATH=$(ls talkback/optional/apkbin/app/Talkback/com.*.apk)
+FILENAME=Talkback.apk
+INDIR=talkback
+NAME=gapps-talkback
+VER=arm-arm64-klmn
+
+DATE=$(date +%F-%H-%M)
+BASEDIR=$(pwd)
+
+echo "" >> build.log
+echo "Updating "$INDIR" on $DATE" >> build.log
+echo "Google Talkback add-on for 4.4.4+ (arm/arm64)" >> build.log
+
+DIR=$(dirname "${FILEPATH}")
+FILE=${FILEPATH##*/}
+NOEXT=${FILE%\.*}
+
+cd "$DIR"
+
+if ! [ $FILE == "" ]; then
+  rm "$FILENAME"
+  mv "$FILE" "$FILENAME"
+fi
+
+VERSION=$(echo "$FILE" | cut -d "_" -f 2)
+APIVER=$(echo "$FILE" | cut -d "_" -f 3)
+
+cd "$BASEDIR"
+
+echo "Version: $VERSION" >> build.log
+echo "API: $APIVER" >> build.log
+echo "" >> build.log
+
+./makezipsign.sh "$INDIR" "$NAME" "$VER"
