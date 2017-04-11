@@ -1,8 +1,8 @@
 #!/bin/bash
 
-APKLIST=$(find search-lollipop/optional/apkbin -name com.*.apk | sort)
+APKLIST=$(find search-lollipop-arm/optional/apkbin -name com.*.apk | sort)
 FILENAME=Velvet.apk
-INDIR=search-lollipop
+INDIR=search-lollipop-arm
 NAME=gapps-search
 VER=arm-lmn
 

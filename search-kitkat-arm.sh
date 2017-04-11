@@ -1,8 +1,8 @@
 #!/bin/bash
 
-APKLIST=$(find search-kitkat/optional/apkbin -name com.*.apk | sort)
+APKLIST=$(find search-kitkat-arm/optional/apkbin -name com.*.apk | sort)
 FILENAME=Velvet.apk
-INDIR=search-kitkat
+INDIR=search-kitkat-arm
 NAME=gapps-search
 VER=arm-k
 
