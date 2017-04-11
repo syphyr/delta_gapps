@@ -10,7 +10,7 @@ DATE=$(date +%F-%H-%M)
 BASEDIR=$(pwd)
 
 echo "" >> build.log
-echo "Updating "$INDIR" on $DATE" >> build.log
+echo "Updating "$INDIR" on $DATE kitkat, lollipop, marshmallow, and nougat" >> build.log
 echo "Google Keep add-on for 4.4.4+ (arm)" >> build.log
 
 for FILEPATH in $APKLIST ; do

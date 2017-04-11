@@ -10,7 +10,7 @@ DATE=$(date +%F-%H-%M)
 BASEDIR=$(pwd)
 
 echo "" >> build.log
-echo "Updating "$INDIR" on $DATE" >> build.log
+echo "Updating "$INDIR" on $DATE for lollipop and marshmallow" >> build.log
 echo "Google Chrome add-on for 5.0.2+ (arm) (replaces stock web browser)" >> build.log
 
 for FILEPATH in $APKLIST ; do

@@ -8,7 +8,7 @@ DATE=$(date +%F-%H-%M)
 BASEDIR=$(pwd)
 
 echo "" >> build.log
-echo "Updating "$INDIR" on $DATE" >> build.log
+echo "Updating "$INDIR" on $DATE for nougat" >> build.log
 echo "Nougat Base Gapps package for 7.1.2 (arm)" >> build.log
 
 for FILEPATH in $APKLIST ; do

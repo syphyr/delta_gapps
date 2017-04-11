@@ -10,7 +10,7 @@ DATE=$(date +%F-%H-%M)
 BASEDIR=$(pwd)
 
 echo "" >> build.log
-echo "Updating "$INDIR" on $DATE" >> build.log
+echo "Updating "$INDIR" on $DATE for kitkat, lollipop, marshmallow, and nougat" >> build.log
 echo "Google Talkback add-on for 4.4.4+ (arm/arm64)" >> build.log
 
 DIR=$(dirname "${FILEPATH}")

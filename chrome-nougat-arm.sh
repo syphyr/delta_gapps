@@ -10,7 +10,7 @@ DATE=$(date +%F-%H-%M)
 BASEDIR=$(pwd)
 
 echo "" >> build.log
-echo "Updating "$INDIR" on $DATE" >> build.log
+echo "Updating "$INDIR" on $DATE for nougat" >> build.log
 echo "Google Chrome add-on for 7.0.0+ (arm) (replaces stock web browser) *includes Google Webview*" >> build.log
 
 DIR=$(dirname "${FILEPATH}")

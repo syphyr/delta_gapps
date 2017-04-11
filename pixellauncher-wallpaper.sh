@@ -12,7 +12,7 @@ DATE=$(date +%F-%H-%M)
 BASEDIR=$(pwd)
 
 echo "" >> build.log
-echo "Updating "$INDIR" on $DATE" >> build.log
+echo "Updating "$INDIR" on $DATE for lollipop, marshmallow, and nougat" >> build.log
 echo "Google Pixel Launcher add-on for 5.0.2+ (arm/arm64) (includes Gooogle Wallpapers)" >> build.log
 
 DIR1=$(dirname "${FILEPATH1}")

@@ -10,7 +10,7 @@ DATE=$(date +%F-%H-%M)
 BASEDIR=$(pwd)
 
 echo "" >> build.log
-echo "Updating "$INDIR" on $DATE" >> build.log
+echo "Updating "$INDIR" on $DATE for lollipop, marshmallow, and nougat" >> build.log
 echo "Google Search add-on for 5.0.2+ (arm) (replaces stock quicksearchbox)" >> build.log
 
 for FILEPATH in $APKLIST ; do
