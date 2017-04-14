@@ -1,6 +1,6 @@
 #!/bin/bash
 
-FILEPATH=$(ls cloudprint/optional/apkbin/app/CloudPrint2/com.*.apk)
+FILEPATH=$(find cloudprint/optional/apkbin/app/CloudPrint2 -name com.*.apk | sort)
 FILENAME=CloudPrint2.apk
 INDIR=cloudprint
 NAME=gapps-cloudprint

@@ -1,6 +1,6 @@
 #!/bin/bash
 
-FILEPATH=$(ls news-weather/optional/apkbin/app/GenieWidget2/com.*.apk)
+FILEPATH=$(find news-weather/optional/apkbin/app/GenieWidget2 -name com.*.apk | sort)
 FILENAME=GenieWidget2.apk
 INDIR=news-weather
 NAME=gapps-news

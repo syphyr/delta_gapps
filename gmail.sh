@@ -1,6 +1,6 @@
 #!/bin/bash
 
-FILEPATH=$(ls gmail/optional/apkbin/app/PrebuiltGmail/com.*.apk)
+FILEPATH=$(find gmail/optional/apkbin/app/PrebuiltGmail -name com.*.apk | sort)
 FILENAME=PrebuiltGmail.apk
 INDIR=gmail
 NAME=gapps-gmail

@@ -1,8 +1,8 @@
 #!/bin/bash
 
-FILEPATH1=$(ls pixellauncher-wallpaper/system/app/WallpaperPickerGooglePrebuilt/com.*.apk)
+FILEPATH1=$(find pixellauncher-wallpaper/system/app/WallpaperPickerGooglePrebuilt -name com.*.apk | sort)
 FILENAME1=WallpaperPickerGooglePrebuilt.apk
-FILEPATH2=$(ls pixellauncher-wallpaper/system/priv-app/NexusLauncherPrebuilt/com.*.apk)
+FILEPATH2=$(find pixellauncher-wallpaper/system/priv-app/NexusLauncherPrebuilt -name com.*.apk | sort)
 FILENAME2=NexusLauncherPrebuilt.apk
 INDIR=pixellauncher-wallpaper
 NAME=gapps-pixellauncher

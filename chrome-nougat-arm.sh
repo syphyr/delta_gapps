@@ -1,6 +1,6 @@
 #!/bin/bash
 
-FILEPATH=$(ls chrome-nougat-arm/system/app/GoogleChrome/com.*.apk)
+FILEPATH=$(find chrome-nougat-arm/system/app/GoogleChrome -name com.*.apk | sort)
 FILENAME=GoogleChrome.apk
 INDIR=chrome-nougat-arm
 NAME=gapps-chrome

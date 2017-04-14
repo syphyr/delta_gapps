@@ -1,6 +1,6 @@
 #!/bin/bash
 
-FILEPATH=$(ls talkback/optional/apkbin/app/Talkback/com.*.apk)
+FILEPATH=$(find talkback/optional/apkbin/app/Talkback -name com.*.apk | sort)
 FILENAME=Talkback.apk
 INDIR=talkback
 NAME=gapps-talkback

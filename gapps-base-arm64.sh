@@ -2,7 +2,7 @@
 
 APKLIST=$(find gapps-base-arm64/optional/gms -name com.*.apk | sort)
 FILENAME=PrebuiltGmsCore.apk
-APKPATH=$(ls gapps-base-arm64/system/priv-app/Phonesky/com.*.apk)
+APKPATH=$(find gapps-base-arm64/system/priv-app/Phonesky -name com.*.apk | sort)
 APKNAME=Phonesky.apk
 INDIR=gapps-base-arm64
 
