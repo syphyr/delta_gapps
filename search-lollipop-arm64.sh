@@ -12,6 +12,7 @@ BASEDIR=$(pwd)
 echo "" >> build.log
 echo "Updating "$INDIR" on $DATE for lollipop, marshmallow, and nougat" >> build.log
 echo "Google Search add-on for 5.0.2+ (arm64) (replaces stock quicsearchbox)" >> build.log
+echo "" >> build.log
 
 for FILEPATH in $APKLIST ; do
 

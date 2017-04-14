@@ -12,6 +12,7 @@ BASEDIR=$(pwd)
 echo "" >> build.log
 echo "Updating "$INDIR" on $DATE for kitkat, lollipop, marshmallow, and nougat" >> build.log
 echo "Google Text-to-Speech add-on for 4.4.4+ (arm) (replaces stock text-to-speech)" >> build.log
+echo "" >> build.log
 
 for FILEPATH in $APKLIST ; do
 

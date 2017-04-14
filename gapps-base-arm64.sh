@@ -12,6 +12,7 @@ BASEDIR=$(pwd)
 echo "" >> build.log
 echo "Updating "$INDIR" on $DATE for nougat" >> build.log
 echo "Nougat Base Gapps package for 7.1.2 (arm64)" >> build.log
+echo "" >> build.log
 
 if [ ! "$APKPATH" == "" ]; then
   DIR=$(dirname "${APKPATH}")
@@ -20,7 +21,7 @@ if [ ! "$APKPATH" == "" ]; then
 
   cd "$DIR"
 
-  if ! [ $FILE == "" ]; then
+  if [ ! "$FILE" == "" ]; then
     rm "$APKNAME"
     mv "$FILE" "$APKNAME"
 
@@ -28,7 +29,6 @@ if [ ! "$APKPATH" == "" ]; then
     APIVER=$(echo "$FILE" | cut -d "_" -f 3)
 
     cd "$BASEDIR"
-    echo "" >> build.log  
     echo "Updating Google Play Store" >> build.log
     echo "Version: $VERSION" >> build.log
     echo "API: $APIVER" >> build.log

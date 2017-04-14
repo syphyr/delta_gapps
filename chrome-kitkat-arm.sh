@@ -12,6 +12,7 @@ BASEDIR=$(pwd)
 echo "" >> build.log
 echo "Updating "$INDIR" on $DATE for kitkat" >> build.log
 echo "Google Chrome add-on for 4.4.4 (arm) (replaces stock web browser)" >> build.log
+echo "" >> build.log
 
 for FILEPATH in $APKLIST ; do
 
