@@ -1,5 +1,5 @@
 ui_print("***********************************************");
-ui_print("      Google Apps Base for Android 7.1.2       ");
+ui_print("    Google Apps Base for Android 7.1.2 arm     ");
 ui_print("***********************************************");
 
 ui_print("Mounting system.");
