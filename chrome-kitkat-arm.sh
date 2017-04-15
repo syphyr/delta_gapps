@@ -9,10 +9,14 @@ VER=arm-k
 DATE=$(date +%F-%H-%M)
 BASEDIR=$(pwd)
 
-echo "" >> build.log
-echo "Updating "$INDIR" on $DATE for kitkat" >> build.log
-echo "Google Chrome add-on for 4.4.4 (arm) (replaces stock web browser)" >> build.log
-echo "" >> build.log
+function tout {
+  tee /dev/tty >> "$BASEDIR"/build.log
+}
+
+echo "" | tout
+echo "Updating "$INDIR" on $DATE for kitkat" | tout
+echo "Google Chrome add-on for 4.4.4 (arm) (replaces stock web browser)" | tout
+echo "" | tout
 
 for FILEPATH in $APKLIST ; do
 
@@ -72,14 +76,14 @@ echo "Libraries aligned."
 
 fi
 
-echo "Version: $VERSION" >> "$BASEDIR"/build.log
-echo "API: $APIVER" >> "$BASEDIR"/build.log
+echo "Version: $VERSION" | tout
+echo "API: $APIVER" | tout
 
 if [ -d lib ] && [ -d lib.old ]; then
-  diff -rq lib.old lib | grep Only >> "$BASEDIR"/build.log
+  diff -rq lib.old lib | grep Only | tout
 fi
 
-echo "" >> "$BASEDIR"/build.log
+echo "" | tout
 echo "Removing extracted files."
 
 if [ -d lib ]; then

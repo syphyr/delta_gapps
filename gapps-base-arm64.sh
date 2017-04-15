@@ -9,10 +9,14 @@ INDIR=gapps-base-arm64
 DATE=$(date +%F-%H-%M)
 BASEDIR=$(pwd)
 
-echo "" >> build.log
-echo "Updating "$INDIR" on $DATE for nougat" >> build.log
-echo "Nougat Base Gapps package for 7.1.2 (arm64)" >> build.log
-echo "" >> build.log
+function tout {
+  tee /dev/tty >> "$BASEDIR"/build.log
+}
+
+echo "" | tout
+echo "Updating "$INDIR" on $DATE for nougat" | tout
+echo "Nougat Base Gapps package for 7.1.2 (arm64)" | tout
+echo "" | tout
 
 if [ ! "$APKPATH" == "" ]; then
   DIR=$(dirname "${APKPATH}")
@@ -29,10 +33,10 @@ if [ ! "$APKPATH" == "" ]; then
     APIVER=$(echo "$FILE" | cut -d "_" -f 3)
 
     cd "$BASEDIR"
-    echo "Updating Google Play Store" >> build.log
-    echo "Version: $VERSION" >> build.log
-    echo "API: $APIVER" >> build.log
-    echo "" >> build.log
+    echo "Updating Google Play Store" | tout
+    echo "Version: $VERSION" | tout
+    echo "API: $APIVER" | tout
+    echo "" | tout
   fi
 fi
 
@@ -58,7 +62,6 @@ for FILEPATH in $APKLIST ; do
   if [ ! -d lib/arm64-v8a ] ; then
     echo "Libraries are not for arm64"
   else
-
     if [ -d lib/arm64-v8a ] ; then
       mkdir ./lib/arm64
       cp -a ./lib/arm64-v8a/* ./lib/arm64/
@@ -97,18 +100,17 @@ for FILEPATH in $APKLIST ; do
     mv "$NOEXT"-aligned.apk "$FILENAME"
 
     echo "Libraries aligned."
-
   fi
 
-  echo "Version: $VERSION" >> "$BASEDIR"/build.log
-  echo "API: $APIVER" >> "$BASEDIR"/build.log
+  echo "Version: $VERSION" | tout
+  echo "API: $APIVER" | tout
 
   if [ -d lib ] && [ -d lib.old ]; then
-    diff -rq lib.old lib | grep Only >> "$BASEDIR"/build.log
+    diff -rq lib.old lib | grep Only | tout
   fi
 
   echo "Removing extracted files."
-  echo "" >> "$BASEDIR"/build.log
+  echo "" | tout
 
   if [ -d lib ]; then
     rm -rf lib
@@ -117,7 +119,6 @@ for FILEPATH in $APKLIST ; do
   if [ -d lib.old ]; then
     rm -rf lib.old
   fi
-
 done
 
 cd "$BASEDIR"

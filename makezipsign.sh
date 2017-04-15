@@ -48,7 +48,3 @@ else
 fi
 
 rm "$INDIR".zip
-
-if [ -e build.log ]; then
-  cat build.log
-fi

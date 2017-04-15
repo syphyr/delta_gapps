@@ -11,10 +11,14 @@ VER=arm-arm64-lmn
 DATE=$(date +%F-%H-%M)
 BASEDIR=$(pwd)
 
-echo "" >> build.log
-echo "Updating "$INDIR" on $DATE for lollipop, marshmallow, and nougat" >> build.log
-echo "Google Pixel Launcher add-on for 5.0.2+ (arm/arm64) (includes Gooogle Wallpapers)" >> build.log
-echo "" >> build.log
+function tout {
+  tee /dev/tty >> "$BASEDIR"/build.log
+}
+
+echo "" | tout
+echo "Updating "$INDIR" on $DATE for lollipop, marshmallow, and nougat" | tout
+echo "Google Pixel Launcher add-on for 5.0.2+ (arm/arm64) (includes Gooogle Wallpapers)" | tout
+echo "" | tout
 
 if [ ! "$FILEPATH1" == "" ]; then
   DIR1=$(dirname "${FILEPATH1}")
@@ -27,10 +31,10 @@ if [ ! "$FILEPATH1" == "" ]; then
     VERSION1=$(echo "$FILE1" | cut -d "_" -f 2)
     APIVER1=$(echo "$FILE1" | cut -d "_" -f 3)
     cd "$BASEDIR"
-    echo "Updating Google Wallpapers" >> build.log
-    echo "Version: $VERSION1" >> build.log
-    echo "API: $APIVER1" >> build.log
-    echo "" >> build.log
+    echo "Updating Google Wallpapers" | tout
+    echo "Version: $VERSION1" | tout
+    echo "API: $APIVER1" | tout
+    echo "" | tout
   fi
 fi
 
@@ -46,10 +50,10 @@ if [ ! "$FILEPATH2" == "" ]; then
     VERSION2=$(echo "$FILE2" | cut -d "_" -f 2)
     APIVER2=$(echo "$FILE2" | cut -d "_" -f 3)
     cd "$BASEDIR"
-    echo "Updating Google Pixel Launcher" >> build.log
-    echo "Version: $VERSION2" >> build.log
-    echo "API: $APIVER2" >> build.log
-    echo "" >> build.log
+    echo "Updating Google Pixel Launcher" | tout
+    echo "Version: $VERSION2" | tout
+    echo "API: $APIVER2" | tout
+    echo "" | tout
   fi
 fi
 

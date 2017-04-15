@@ -9,10 +9,14 @@ VER=arm-n
 DATE=$(date +%F-%H-%M)
 BASEDIR=$(pwd)
 
-echo "" >> build.log
-echo "Updating "$INDIR" on $DATE for nougat" >> build.log
-echo "Google Chrome add-on for 7.0.0+ (arm) (replaces stock web browser) *includes Google Webview*" >> build.log
-echo "" >> build.log
+function tout {
+  tee /dev/tty >> "$BASEDIR"/build.log
+}
+
+echo "" | tout
+echo "Updating "$INDIR" on $DATE for nougat" | tout
+echo "Google Chrome add-on for 7.0.0+ (arm) (replaces stock web browser) *includes Google Webview*" | tout
+echo "" | tout
 
 if [ ! "$FILEPATH" == "" ]; then
 
@@ -30,9 +34,9 @@ if [ ! "$FILEPATH" == "" ]; then
     APIVER=$(echo "$FILE" | cut -d "_" -f 3)
 
     cd "$BASEDIR"
-    echo "Version: $VERSION" >> build.log
-    echo "API: $APIVER" >> build.log
-    echo "" >> build.log
+    echo "Version: $VERSION" | tout
+    echo "API: $APIVER" | tout
+    echo "" | tout
   fi
 fi
 
