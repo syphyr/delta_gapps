@@ -6,7 +6,7 @@ VERSION="$3"
 DATE=$(date +%F | sed s/-//g)
 DATE=$DATE-1
 
-if ! [ -d "$INDIR" ]; then
+if [ ! -d "$INDIR" ]; then
   echo "Target is not a directory. Abort."
   exit
 fi
@@ -25,11 +25,11 @@ fi
 
 cd "$INDIR"
 
-zip -r ../"$INDIR".zip *
+zip -rq ../"$INDIR".zip *
 
 cd ..  
 
-echo "Signing ZIP..."
+echo "Signing zip file."
 
 if [ ! -d out ]; then
   mkdir out
@@ -48,3 +48,4 @@ else
 fi
 
 rm "$INDIR".zip
+echo "Done."
