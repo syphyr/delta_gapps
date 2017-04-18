@@ -29,13 +29,15 @@ if [ ! "$APKPATH" == "" ]; then
     rm "$APKNAME"
     mv "$FILE" "$APKNAME"
 
-    VERSION=$(echo "$FILE" | cut -d "_" -f 2)
-    APIVER=$(echo "$FILE" | cut -d "_" -f 3)
+    VERSION=${FILE%_min*}
+    VERSION=${VERSION#*_}
+    APIVER=$(echo ${FILE#*_min} | cut -d "_" -f 1)
+
 
     cd "$BASEDIR"
     echo "Updating Google Play Store" | tout
     echo "Version: $VERSION" | tout
-    echo "API: $APIVER" | tout
+    echo "Minimum API: $APIVER" | tout
     echo "" | tout
   fi
 fi
@@ -46,8 +48,9 @@ for FILEPATH in $APKLIST ; do
   FILE=${FILEPATH##*/}
   NOEXT=${FILE%\.*}
 
-  VERSION=$(echo "$FILE" | cut -d "_" -f 2)
-  APIVER=$(echo "$FILE" | cut -d "_" -f 3)
+  VERSION=${FILE%_min*}
+  VERSION=${VERSION#*_}
+  APIVER=$(echo ${FILE#*_min} | cut -d "_" -f 1)
 
   cd "$BASEDIR"
   cd "$DIR"
@@ -99,7 +102,7 @@ for FILEPATH in $APKLIST ; do
   fi
 
   echo "Version: $VERSION" | tout
-  echo "API: $APIVER" | tout
+  echo "Minimum API: $APIVER" | tout
 
   if [ -d lib ] && [ -d lib.old ]; then
     diff -rq lib.old lib | grep Only | tout
