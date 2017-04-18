@@ -19,7 +19,6 @@ etc/sysconfig/google_build.xml
 etc/sysconfig/google_vr_build.xml
 etc/sysconfig/google.xml
 etc/sysconfig/marlin_common.xml
-etc/sysconfig/nexus.xml
 etc/sysconfig/whitelist_com.android.omadm.service.xml
 framework/com.google.android.dialer.support.jar
 framework/com.google.android.maps.jar
