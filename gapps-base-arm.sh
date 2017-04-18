@@ -37,7 +37,7 @@ if [ ! "$APKPATH" == "" ]; then
     cd "$BASEDIR"
     echo "Updating Google Play Store" | tout
     echo "Version: $VERSION" | tout
-    echo "Minimum API: $APIVER" | tout
+    echo "minAPI/DPI: $APIVER" | tout
     echo "" | tout
   fi
 fi
@@ -102,7 +102,7 @@ for FILEPATH in $APKLIST ; do
   fi
 
   echo "Version: $VERSION" | tout
-  echo "Minimum API: $APIVER" | tout
+  echo "minAPI/DPI: $APIVER" | tout
 
   if [ -d lib ] && [ -d lib.old ]; then
     diff -rq lib.old lib | grep Only | tout

@@ -28,12 +28,13 @@ if [ ! "$FILEPATH1" == "" ]; then
   if [ ! "$FILE1" == "" ]; then
     rm "$FILENAME1"
     mv "$FILE1" "$FILENAME1"
-    VERSION1=$(echo "$FILE1" | cut -d "_" -f 2)
-    APIVER1=$(echo "$FILE1" | cut -d "_" -f 3)
+    VERSION1=${FILE1%_min*}
+    VERSION1=${VERSION1#*_}
+    APIVER1=$(echo ${FILE1#*_min} | cut -d "_" -f 1)
     cd "$BASEDIR"
     echo "Updating Google Wallpapers" | tout
     echo "Version: $VERSION1" | tout
-    echo "API: $APIVER1" | tout
+    echo "minAPI/DPI: $APIVER1" | tout
     echo "" | tout
   fi
 fi
@@ -47,12 +48,13 @@ if [ ! "$FILEPATH2" == "" ]; then
   if [ ! "$FILE2" == "" ]; then
     rm "$FILENAME2"
     mv "$FILE2" "$FILENAME2"
-    VERSION2=$(echo "$FILE2" | cut -d "_" -f 2)
-    APIVER2=$(echo "$FILE2" | cut -d "_" -f 3)
+    VERSION2=${FILE2%_min*}
+    VERSION2=${VERSION2#*_}
+    APIVER2=$(echo ${FILE2#*_min} | cut -d "_" -f 1)
     cd "$BASEDIR"
     echo "Updating Google Pixel Launcher" | tout
     echo "Version: $VERSION2" | tout
-    echo "API: $APIVER2" | tout
+    echo "minAPI/DPI: $APIVER2" | tout
     echo "" | tout
   fi
 fi
