@@ -104,6 +104,7 @@ for FILEPATH in $APKLIST ; do
     echo "Libraries aligned."
   fi
 
+  echo "Updating Google Play Services" | tout
   echo "Version: $VERSION" | tout
   echo "minAPI/DPI: $APIVER" | tout
 
