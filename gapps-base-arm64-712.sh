@@ -1,10 +1,10 @@
 #!/bin/bash
 
-APKLIST=$(find gapps-base-arm/optional/gms -name com.*.apk | sort)
+APKLIST=$(find gapps-base-arm64-712/optional/gms -name com.*.apk | sort)
 FILENAME=PrebuiltGmsCore.apk
-APKPATH=$(find gapps-base-arm/system/priv-app/Phonesky -name com.*.apk | sort)
+APKPATH=$(find gapps-base-arm64-712/system/priv-app/Phonesky -name com.*.apk | sort)
 APKNAME=Phonesky.apk
-INDIR=gapps-base-arm
+INDIR=gapps-base-arm64-712
 
 DATE=$(date +%F-%H-%M)
 BASEDIR=$(pwd)
@@ -15,7 +15,7 @@ function tout {
 
 echo "" | tout
 echo "Updating "$INDIR" on $DATE for nougat" | tout
-echo "Nougat Base Gapps package for 7.1.2 (arm)" | tout
+echo "Nougat Base Gapps package for 7.1.2 (arm64)" | tout
 echo "" | tout
 
 if [ ! "$APKPATH" == "" ]; then
@@ -32,7 +32,6 @@ if [ ! "$APKPATH" == "" ]; then
     VERSION=${FILE%_min*}
     VERSION=${VERSION#*_}
     APIVER=$(echo ${FILE#*_min} | cut -d "_" -f 1)
-
 
     cd "$BASEDIR"
     echo "Updating Google Play Store" | tout
@@ -62,17 +61,23 @@ for FILEPATH in $APKLIST ; do
   fi
   unzip -o "$FILE" lib/* -d ./
 
-  if [ ! -d lib/armeabi-v7a ] && [ ! -d lib/armeabi ] ; then
-    echo "Libraries are not for arm"
+  if [ ! -d lib/arm64-v8a ] ; then
+    echo "Libraries are not for arm64"
   else
-    if [ -d lib.old/armeabi-v7a ] ; then
-      mkdir ./lib.old/arm
-      cp -a ./lib.old/armeabi-v7a/* ./lib.old/arm/
-      rm -rf  ./lib.old/armeabi-v7a
-    else
-      mkdir ./lib.old/arm
-      cp -a ./lib.old/armeabi/* ./lib.old/arm/
-      rm -rf ./lib.old/armeabi
+    if [ -d lib/arm64-v8a ] ; then
+      mkdir ./lib/arm64
+      cp -a ./lib/arm64-v8a/* ./lib/arm64/
+      #echo "Deleting lib directory inside apk file"
+      zip "$FILE" -d ./lib/arm64-v8a/*
+      #echo "Inserting decompressed libraries inside apk file"
+      zip -r -D -Z store -b ./ "$FILE" ./lib/arm64-v8a/
+      rm -rf  ./lib/arm64-v8a
+    fi
+
+    if [ -d lib.old/arm64-v8a ] ; then
+      mkdir ./lib.old/arm64
+      cp -a ./lib.old/arm64-v8a/* ./lib.old/arm64/
+      rm -rf  ./lib.old/arm64-v8a
     fi
 
     if [ -d lib/armeabi-v7a ] ; then
@@ -83,14 +88,12 @@ for FILEPATH in $APKLIST ; do
       #echo "Inserting decompressed libraries inside apk file"
       zip -r -D -Z store -b ./ "$FILE" ./lib/armeabi-v7a/
       rm -rf  ./lib/armeabi-v7a
-    else
-      mkdir ./lib/arm
-      cp -a ./lib/armeabi/* ./lib/arm/
-      #echo "Deleting lib directory inside apk file"
-      zip "$FILE" -d ./lib/armeabi/*
-      #echo "Inserting decompressed libraries inside apk file"
-      zip -r -D -Z store -b ./ "$FILE" ./lib/armeabi/
-      rm -rf ./lib/armeabi
+    fi
+
+    if [ -d lib.old/armeabi-v7a ] ; then
+      mkdir ./lib.old/arm
+      cp -a ./lib.old/armeabi-v7a/* ./lib.old/arm/
+      rm -rf  ./lib.old/armeabi-v7a
     fi
 
     echo "Aligning apk and libraries for 32bit systems"
@@ -108,8 +111,8 @@ for FILEPATH in $APKLIST ; do
     diff -rq lib.old lib | grep Only | tout
   fi
 
-  echo "" | tout
   echo "Removing extracted files."
+  echo "" | tout
 
   if [ -d lib ]; then
     rm -rf lib
