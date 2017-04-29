@@ -7,7 +7,7 @@
 list_files() {
 cat <<EOF
 app/GoogleMaps.apk
-lib/libcronet.so
+lib/libcronet.59.0.3056.4.so
 lib/libgmm-jni.so
 EOF
 }

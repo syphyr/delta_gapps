@@ -7,7 +7,7 @@
 list_files() {
 cat <<EOF
 priv-app/Velvet/Velvet.apk
-priv-app/Velvet/lib/arm64/libcronet.so
+priv-app/Velvet/lib/arm64/libcronet.59.0.3056.4.so
 priv-app/Velvet/lib/arm64/libframesequence.so
 priv-app/Velvet/lib/arm64/libgoogle_speech_jni.so
 priv-app/Velvet/lib/arm64/libgoogle_speech_micro_jni.so

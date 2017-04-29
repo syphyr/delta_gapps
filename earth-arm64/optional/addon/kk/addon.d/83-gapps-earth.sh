@@ -1,14 +1,13 @@
 #!/sbin/sh
 # 
-# /system/addon.d/80-gapps-maps.sh
+# /system/addon.d/83-gapps-earth.sh
 #
 . /tmp/backuptool.functions
 
 list_files() {
 cat <<EOF
-app/GoogleMaps/GoogleMaps.apk
-app/GoogleMaps/lib/arm/libcronet.59.0.3056.4.so
-app/GoogleMaps/lib/arm/libgmm-jni.so
+app/GoogleEarth.apk
+lib64/libearthmobile.so
 EOF
 }
 
@@ -35,8 +34,6 @@ case "$1" in
     # Stub
   ;;
   post-restore)
-    chmod 755 /system/app/GoogleMaps
-    chmod 755 /system/app/GoogleMaps/lib
-    chmod 755 /system/app/GoogleMaps/lib/arm
+    # Stub
   ;;
 esac
