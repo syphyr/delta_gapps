@@ -48,12 +48,12 @@ for FILEPATH in $APKLIST ; do
   else
     if [ -d lib.old/armeabi-v7a ] ; then
       mkdir ./lib.old/arm
-      cp -a ./lib.old/armeabi-v7a/* ./lib.old/arm/
-      rm -rf  ./lib.old/armeabi-v7a
+      mv ./lib.old/armeabi-v7a/* ./lib.old/arm/
+      rmdir ./lib.old/armeabi-v7a
     else
       mkdir ./lib.old/arm
-      cp -a ./lib.old/armeabi/* ./lib.old/arm/
-      rm -rf ./lib.old/armeabi
+      mv ./lib.old/armeabi/* ./lib.old/arm/
+      rmdir ./lib.old/armeabi
     fi
 
     if [ -d lib/armeabi-v7a ] ; then
