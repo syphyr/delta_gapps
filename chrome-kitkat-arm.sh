@@ -33,7 +33,12 @@ for FILEPATH in $APKLIST ; do
 
   echo "Extracting libraries from apk"
   if [ -e "$FILENAME" ]; then
-    unzip -o "$FILENAME" lib/* -d ./
+    if [ -d ../lib ]; then
+      mkdir -p ./lib/armeabi-v7a
+      mv ../lib/* ./lib/armeabi-v7a/
+    else
+      unzip -o "$FILENAME" lib/* -d ./
+    fi
     mv lib lib.old
   fi
   unzip -o "$FILE" lib/* -d ./
