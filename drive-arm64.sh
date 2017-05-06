@@ -42,35 +42,35 @@ for FILEPATH in $APKLIST ; do
     echo "Libraries are not for arm64"
   else
     if [ -d lib/arm64-v8a ] ; then
-      mkdir ./lib/arm64
-      cp -a ./lib/arm64-v8a/* ./lib/arm64/
       #echo "Deleting lib directory inside apk file"
       zip "$FILE" -d ./lib/arm64-v8a/*
       #echo "Inserting decompressed libraries inside apk file"
       zip -r -D -Z store -b ./ "$FILE" ./lib/arm64-v8a/
-      rm -rf  ./lib/arm64-v8a
+      mkdir ./lib/arm64
+      mv ./lib/arm64-v8a/* ./lib/arm64/
+      rmdir ./lib/arm64-v8a
     fi
 
     if [ -d lib.old/arm64-v8a ] ; then
       mkdir ./lib.old/arm64
-      cp -a ./lib.old/arm64-v8a/* ./lib.old/arm64/
-      rm -rf  ./lib.old/arm64-v8a
+      mv ./lib.old/arm64-v8a/* ./lib.old/arm64/
+      rmdir ./lib.old/arm64-v8a
     fi
 
     if [ -d lib/armeabi-v7a ] ; then
-      mkdir ./lib/arm
-      cp -a ./lib/armeabi-v7a/* ./lib/arm/
       #echo "Deleting lib directory inside apk file"
       zip "$FILE" -d ./lib/armeabi-v7a/*
       #echo "Inserting decompressed libraries inside apk file"
       zip -r -D -Z store -b ./ "$FILE" ./lib/armeabi-v7a/
-      rm -rf  ./lib/armeabi-v7a
+      mkdir ./lib/arm
+      mv ./lib/armeabi-v7a/* ./lib/arm/
+      rmdir ./lib/armeabi-v7a
     fi
 
     if [ -d lib.old/armeabi-v7a ] ; then
       mkdir ./lib.old/arm
-      cp -a ./lib.old/armeabi-v7a/* ./lib.old/arm/
-      rm -rf  ./lib.old/armeabi-v7a
+      mv ./lib.old/armeabi-v7a/* ./lib.old/arm/
+      rmdir ./lib.old/armeabi-v7a
     fi
 
     echo "Aligning apk and libraries for 32bit systems"
