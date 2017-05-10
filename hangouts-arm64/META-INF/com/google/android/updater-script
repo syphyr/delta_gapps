@@ -1,0 +1,50 @@
+ui_print("***********************************************");
+ui_print("    Google Hangouts for Android 5.0.2+ arm64   ");
+ui_print("***********************************************");
+
+ui_print("Mounting system.");
+run_program("/sbin/busybox", "mount", "/system");
+run_program("/sbin/mount", "-o", "remount,rw", "/system", "/system");
+show_progress(1, 15);
+
+ui_print("Cleaning system.");
+delete_recursive("/system/app/Hangouts","/system/priv-app/Hangouts");
+
+ui_print("Installing files.");
+run_program("/sbin/mkdir", "/tmp/addon");
+run_program("/sbin/mkdir", "/tmp/apkbin");
+package_extract_dir("optional/addon", "/tmp/addon");
+package_extract_dir("scripts", "/tmp");
+set_perm(0, 0, 0777, "/tmp/busybox");
+set_perm(0, 0, 0777, "/tmp/install-core-0.sh");
+set_perm(0, 0, 0777, "/tmp/install-core-1.sh");
+set_perm(0, 0, 0777, "/tmp/install-core-2.sh");
+set_perm(0, 0, 0777, "/tmp/install-core-3.sh");
+set_perm(0, 0, 0777, "/tmp/install-core-4.sh");
+set_perm(0, 0, 0777, "/tmp/install-core-5.sh");
+set_perm(0, 0, 0777, "/tmp/zip");
+set_perm(0, 0, 0777, "/tmp/zipalign");
+symlink("/tmp/busybox", "/tmp/unzip");
+package_extract_dir("optional/apkbin/0", "/tmp/apkbin");
+run_program("/tmp/install-core-0.sh", "");
+package_extract_dir("optional/apkbin/1", "/tmp/apkbin");
+run_program("/tmp/install-core-1.sh", "");
+package_extract_dir("optional/apkbin/2", "/tmp/apkbin");
+run_program("/tmp/install-core-2.sh", "");
+package_extract_dir("optional/apkbin/3", "/tmp/apkbin");
+run_program("/tmp/install-core-3.sh", "");
+package_extract_dir("optional/apkbin/4", "/tmp/apkbin");
+run_program("/tmp/install-core-4.sh", "");
+package_extract_dir("optional/apkbin/5", "/tmp/apkbin");
+run_program("/tmp/install-core-5.sh", "");
+show_progress(1, 15);
+
+ui_print("Setting metadata.");
+set_metadata_recursive("/system/addon.d", "uid", 0, "gid", 0, "dmode", 0755, "fmode", 0755, "capabilities", 0x0, "selabel", "u:object_r:system_file:s0");
+set_metadata_recursive("/system/priv-app", "uid", 0, "gid", 0, "dmode", 0755, "fmode", 0644, "capabilities", 0x0, "selabel", "u:object_r:system_file:s0");
+
+ui_print("Unmounting system.");
+run_program("/sbin/busybox", "umount", "/system");
+
+ui_print("Done.");
+
