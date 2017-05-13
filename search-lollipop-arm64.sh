@@ -15,7 +15,7 @@ function tout {
 
 echo "" | tout
 echo "Updating "$INDIR" on $DATE for lollipop, marshmallow, and nougat" | tout
-echo "Google Search add-on for 5.0.2+ (arm64) (replaces stock quicsearchbox)" | tout
+echo "Google Search add-on for 5.0.2+ (arm64) (replaces stock quicksearchbox)" | tout
 echo "" | tout
 
 for FILEPATH in $APKLIST ; do
