@@ -1,0 +1,24 @@
+Manifest-Version: 1.0
+Created-By: 1.0 (Android SignApk)
+
+Name: optional/addon/kk/addon.d/94-gapps-device.sh
+SHA1-Digest: 2GBlvAPAuAvBjIFdIyWn9YiqmBI=
+
+Name: optional/apkbin/app/DeviceManager/DeviceManager.apk
+SHA1-Digest: 5LXgw60KXqgkqY5MaKjPBRUzbTw=
+
+Name: META-INF/com/google/android/updater-script
+SHA1-Digest: a91IpwESOnjWeafMIcWPfhzM6O0=
+
+Name: scripts/install-optional.sh
+SHA1-Digest: HRT3lRPQiA72fvzDzR4xO83VkwA=
+
+Name: META-INF/com/android/otacert
+SHA1-Digest: 71Q6Rn2DDZl1zPDVaaeEHItd+Yg=
+
+Name: optional/addon/lp/addon.d/94-gapps-device.sh
+SHA1-Digest: ZtrSCuviBLh5HdprwAAl0HuznOs=
+
+Name: META-INF/com/google/android/update-binary
+SHA1-Digest: 33EUFJNMIsbufjFFV8O4B/4cWkQ=
+
