@@ -1,6 +1,6 @@
 # begin addon properties
 ro.addon.type=gapps-base-arm
 ro.addon.platform=kk
-ro.addon.version=20170512-1
+ro.addon.version=20170522-1
 ro.addon.minimumversion=4.4.4
 # end addon properties
