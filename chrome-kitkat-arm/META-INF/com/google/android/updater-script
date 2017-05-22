@@ -6,7 +6,7 @@ ui_print("Installing files.");
 run_program("/sbin/busybox", "mount", "/system");
 run_program("/sbin/mount", "-o", "remount,rw", "/system", "/system");
 show_progress(1, 15);
-delete("/system/app/GoogleChrome.apk","/system/app/Browser.apk");
+delete("/system/app/GoogleChrome.apk","/system/app/Browser.apk","/system/app/Jelly.apk");
 package_extract_dir("system", "/system");
 show_progress(1, 15);
 ui_print("Setting metadata.");

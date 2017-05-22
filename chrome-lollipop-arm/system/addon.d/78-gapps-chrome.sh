@@ -50,6 +50,7 @@ case "$1" in
   post-restore)
     rm -rf /system/app/Browser
     rm -rf /system/app/Gello
+    rm -rf /system/app/Jelly
     chmod 755 /system/app/GoogleChrome
     chmod 755 /system/app/GoogleChrome/lib
     chmod 755 /system/app/GoogleChrome/lib/arm

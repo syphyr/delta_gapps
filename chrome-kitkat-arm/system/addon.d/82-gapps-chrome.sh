@@ -50,5 +50,6 @@ case "$1" in
   ;;
   post-restore)
     rm -f /system/app/Browser.apk
+    rm -f /system/app/Jelly.apk
   ;;
 esac
