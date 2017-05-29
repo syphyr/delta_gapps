@@ -34,7 +34,6 @@ priv-app/GoogleLoginService/GoogleLoginService.apk
 priv-app/GoogleOneTimeInitializer/GoogleOneTimeInitializer.apk
 priv-app/GooglePartnerSetup/GooglePartnerSetup.apk
 priv-app/GoogleServicesFramework/GoogleServicesFramework.apk
-priv-app/HotwordEnrollment/HotwordEnrollment.apk
 priv-app/Phonesky/Phonesky.apk
 priv-app/PrebuiltGmsCore/PrebuiltGmsCore.apk
 priv-app/SetupWizard/SetupWizard.apk
