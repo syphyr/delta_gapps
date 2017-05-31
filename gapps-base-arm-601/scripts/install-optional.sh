@@ -27,8 +27,6 @@ if [ -e /system/etc/permissions/android.hardware.telephony.gsm.xml ] || [ -e /sy
   cp -a /tmp/dialer/* /system/
 else
   sed -i '/dialer/ d' /system/addon.d/70-gapps.sh
-  rm -f /system/etc/permissions/com.google.android.dialer.support.xml
-  rm -f /system/framework/com.google.android.dialer.support.jar
 fi
 rm -rf /tmp/dialer
 
