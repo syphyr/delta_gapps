@@ -14,8 +14,8 @@ function tout {
 }
 
 echo "" | tout
-echo "Updating "$INDIR" on $DATE for nougat" | tout
-echo "Nougat Marshmallow Gapps package for 6.0.1 (arm64)" | tout
+echo "Updating "$INDIR" on $DATE for marshmallow" | tout
+echo "Marshmallow Base Gapps package for 6.0.1 (arm64)" | tout
 echo "" | tout
 
 if [ ! "$APKPATH" == "" ]; then
