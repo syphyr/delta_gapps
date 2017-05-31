@@ -5,9 +5,6 @@
 
 . /tmp/backuptool.functions
 
-
-
-
 list_files() {
 cat <<EOF
 app/FaceLock/FaceLock.apk
