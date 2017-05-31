@@ -71,7 +71,6 @@ case "$1" in
     chmod 755 /system/etc/default-permissions
     chmod 755 /system/etc/preferred-apps
     chmod 755 /system/etc/sysconfig
-    chmod 755 /system/priv-app/AndroidPlatformServices
     chmod 755 /system/priv-app/ConfigUpdater
     chmod 755 /system/priv-app/GmsCoreSetupPrebuilt
     chmod 755 /system/priv-app/GoogleBackupTransport
