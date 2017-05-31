@@ -1,0 +1,16 @@
+ui_print("***********************************************");
+ui_print("      Google Camera for Android 7.1.0+ arm     ");
+ui_print("***********************************************");
+
+ui_print("Installing files.");
+run_program("/sbin/busybox", "mount", "/system");
+run_program("/sbin/mount", "-o", "remount,rw", "/system", "/system");
+show_progress(1, 15);
+delete_recursive("/system/app/GoogleCamera","/system/app/Camera2","/system/app/OpenCamera","/system/app/Snap","/system/priv-app/Snap");
+package_extract_dir("system", "/system");
+show_progress(1, 15);
+ui_print("Setting metadata.");
+set_metadata_recursive("/system/addon.d", "uid", 0, "gid", 0, "dmode", 0755, "fmode", 0755, "capabilities", 0x0, "selabel", "u:object_r:system_file:s0");
+set_metadata_recursive("/system/app", "uid", 0, "gid", 0, "dmode", 0755, "fmode", 0644, "capabilities", 0x0, "selabel", "u:object_r:system_file:s0");
+run_program("/sbin/busybox", "umount", "/system");
+ui_print("Done.");
