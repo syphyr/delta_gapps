@@ -8,7 +8,7 @@ list_files() {
 cat <<EOF
 priv-app/Hangouts/Hangouts.apk
 priv-app/Hangouts/lib/arm64/libcrashreporterer.so
-priv-app/Hangouts/lib/arm64/libcronet.so
+priv-app/Hangouts/lib/arm64/libcronet.59.0.3050.4.so
 priv-app/Hangouts/lib/arm64/libframesequence.so
 priv-app/Hangouts/lib/arm64/libvideochat_jni.so
 EOF
