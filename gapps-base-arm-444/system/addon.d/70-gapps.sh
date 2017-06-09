@@ -31,9 +31,7 @@ lib/libgmscore.so
 lib/libgoogle-ocrclient-v3.so
 lib/libjgcastservice.so
 lib/libleveldbjni.so
-lib/libNearbyApp.so
-lib/libsslwrapper_jni.so
-lib/libtango_utility_lib.so
+lib/libvcdiffjni.so
 lib/libwearable-selector.so
 lib/libWhisper.so
 priv-app/GoogleBackupTransport.apk

@@ -39,9 +39,8 @@ priv-app/PrebuiltGmsCore/lib/arm/libgmscore.so
 priv-app/PrebuiltGmsCore/lib/arm/libgoogle-ocrclient-v3.so
 priv-app/PrebuiltGmsCore/lib/arm/libjgcastservice.so
 priv-app/PrebuiltGmsCore/lib/arm/libleveldbjni.so
-priv-app/PrebuiltGmsCore/lib/arm/libNearbyApp.so
 priv-app/PrebuiltGmsCore/lib/arm/libsslwrapper_jni.so
-priv-app/PrebuiltGmsCore/lib/arm/libtango_utility_lib.so
+priv-app/PrebuiltGmsCore/lib/arm/libvcdiffjni.so
 priv-app/PrebuiltGmsCore/lib/arm/libwearable-selector.so
 priv-app/PrebuiltGmsCore/lib/arm/libWhisper.so
 priv-app/SetupWizard/SetupWizard.apk
