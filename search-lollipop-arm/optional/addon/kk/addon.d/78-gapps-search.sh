@@ -12,6 +12,7 @@ lib/libcronet.59.0.3071.25.so
 lib/libframesequence.so
 lib/libgoogle_speech_jni.so
 lib/libgoogle_speech_micro_jni.so
+lib/libhere_allpurpose.so
 lib/libnativecrashreporter.so
 lib/liboffline_actions_jni.so
 EOF

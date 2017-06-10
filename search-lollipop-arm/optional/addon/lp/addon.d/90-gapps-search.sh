@@ -12,6 +12,7 @@ priv-app/Velvet/lib/arm/libcronet.59.0.3071.25.so
 priv-app/Velvet/lib/arm/libframesequence.so
 priv-app/Velvet/lib/arm/libgoogle_speech_jni.so
 priv-app/Velvet/lib/arm/libgoogle_speech_micro_jni.so
+priv-app/Velvet/lib/arm/libhere_allpurpose.so
 priv-app/Velvet/lib/arm/libnativecrashreporter.so
 priv-app/Velvet/lib/arm/liboffline_actions_jni.so
 EOF
