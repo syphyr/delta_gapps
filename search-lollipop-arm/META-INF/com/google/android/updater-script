@@ -9,7 +9,6 @@ show_progress(1, 15);
 
 ui_print("Cleaning system.");
 delete_recursive("/system/priv-app/Velvet","/system/app/QuickSearchBox");
-delete("/system/priv-app/Velvet.apk","/system/app/QuickSearchBox.apk");
 
 ui_print("Installing files.");
 run_program("/sbin/mkdir", "/tmp/addon");
@@ -37,7 +36,6 @@ show_progress(1, 15);
 ui_print("Setting metadata.");
 set_metadata_recursive("/system/addon.d", "uid", 0, "gid", 0, "dmode", 0755, "fmode", 0755, "capabilities", 0x0, "selabel", "u:object_r:system_file:s0");
 set_metadata_recursive("/system/priv-app", "uid", 0, "gid", 0, "dmode", 0755, "fmode", 0644, "capabilities", 0x0, "selabel", "u:object_r:system_file:s0");
-set_metadata_recursive("/system/lib", "uid", 0, "gid", 0, "dmode", 0755, "fmode", 0644, "capabilities", 0x0, "selabel", "u:object_r:system_file:s0");
 
 ui_print("Unmounting system.");
 run_program("/sbin/busybox", "umount", "/system");

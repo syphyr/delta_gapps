@@ -9,7 +9,6 @@ show_progress(1, 15);
 
 ui_print("Cleaning system.");
 delete_recursive("/system/priv-app/Velvet","/system/app/QuickSearchBox");
-delete("/system/priv-app/Velvet.apk","/system/app/QuickSearchBox.apk");
 
 ui_print("Installing files.");
 run_program("/sbin/mkdir", "/tmp/addon");
