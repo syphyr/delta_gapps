@@ -8,7 +8,7 @@ list_files() {
 cat <<EOF
 app/Youtube/Youtube.apk
 app/Youtube/lib/arm/libambisonic_audio_renderer.so
-app/Youtube/lib/arm/libcronet.61.0.3129.3.so
+app/Youtube/lib/arm/libcronet.61.0.3142.0.so
 app/Youtube/lib/arm/libdrishti_jni_native.so
 app/Youtube/lib/arm/libfilterframework_jni.so
 app/Youtube/lib/arm/libframesequence.so
@@ -18,6 +18,7 @@ app/Youtube/lib/arm/libmoxie.so
 app/Youtube/lib/arm/libvpxJNI.so
 app/Youtube/lib/arm/libvpx.so
 app/Youtube/lib/arm/libwebp_android.so
+app/Youtube/lib/arm/libyoga.so
 EOF
 }
 
