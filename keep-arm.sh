@@ -14,7 +14,7 @@ function tout {
 }
 
 echo "" | tout
-echo "Updating "$INDIR" on $DATE kitkat, lollipop, marshmallow, and nougat" | tout
+echo "Updating "$INDIR" on $DATE for kitkat, lollipop, marshmallow, and nougat" | tout
 echo "Google Keep add-on for 4.4.4+ (arm)" | tout
 echo "" | tout
 
