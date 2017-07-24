@@ -37,6 +37,7 @@ case "$1" in
     rm -rf /system/app/OpenCamera
     rm -rf /system/app/Snap
     rm -rf /system/priv-app/Snap
+    rm -rf /system/app/SnapdragonCamera
     chmod 755 /system/app/GoogleCamera
     chmod 755 /system/app/GoogleCamera/lib
     chmod 755 /system/app/GoogleCamera/lib/arm
