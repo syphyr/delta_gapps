@@ -6,7 +6,7 @@ SYSPATH="app"
 
 LCD=$(grep ro.sf.lcd_density /system/build.prop | cut -d "=" -f 2);
 
-if [ ! "$LCD" == 160 ] && [ ! "$LCD" == 240 ] && [ ! "$LCD" == 320 ] && [ ! "$LCD" == 480 ]; then
+if [ ! "$LCD" == 320 ] && [ ! "$LCD" == 480 ]; then
   echo "Installing default."
   if grep ro.build.version.release /system/build.prop | grep 4.4.; then
     echo kk
