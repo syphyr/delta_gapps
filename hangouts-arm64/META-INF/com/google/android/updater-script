@@ -25,7 +25,7 @@ set_perm(0, 0, 0777, "/tmp/install-core-5.sh");
 set_perm(0, 0, 0777, "/tmp/zip");
 set_perm(0, 0, 0777, "/tmp/zipalign");
 symlink("/tmp/busybox", "/tmp/unzip");
-package_extract_dir("optional/apkbin/0", "/tmp/apkbin");
+package_extract_dir("optional/apkbin/5", "/tmp/apkbin");
 run_program("/tmp/install-core-0.sh", "");
 package_extract_dir("optional/apkbin/1", "/tmp/apkbin");
 run_program("/tmp/install-core-1.sh", "");
