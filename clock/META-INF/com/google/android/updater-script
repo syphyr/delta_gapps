@@ -7,7 +7,7 @@ run_program("/sbin/busybox", "mount", "/system");
 run_program("/sbin/mount", "-o", "remount,rw", "/system", "/system");
 show_progress(1, 15);
 
-delete_recursive("/system/app/DeskClock","/system/app/GoogleDeskClock");
+delete_recursive("/system/app/DeskClock","/system/app/GoogleDeskClock","/system/app/OmniClockOSS");
 delete("/system/app/DeskClock.apk","/system/app/GoogleDeskClock.apk");
 
 ui_print("Installing files.");

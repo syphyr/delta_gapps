@@ -34,6 +34,7 @@ case "$1" in
   ;;
   post-restore)
     rm -rf /system/app/DeskClock
+    rm -rf /system/app/OmniClockOSS
     chmod 755 /system/app/GoogleDeskClock
   ;;
 esac
