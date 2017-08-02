@@ -7,7 +7,7 @@ run_program("/sbin/busybox", "mount", "/system");
 run_program("/sbin/mount", "-o", "remount,rw", "/system", "/system");
 show_progress(1, 15);
 
-delete_recursive("/system/app/GoogleMusic","/system/app/Eleven","/system/app/Phonograph");
+delete_recursive("/system/app/GoogleMusic","/system/app/Eleven","/system/priv-app/Eleven","/system/app/Phonograph");
 delete("/system/app/GoogleMusic.apk","/system/app/Apollo.apk");
 
 ui_print("Installing files.");

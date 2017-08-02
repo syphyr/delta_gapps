@@ -34,6 +34,7 @@ case "$1" in
   ;;
   post-restore)
     rm -rf /system/app/Eleven
+    rm -rf /system/priv-app/Eleven
     rm -rf /system/app/Phonograph
     chmod 755 /system/app/GoogleMusic
   ;;
