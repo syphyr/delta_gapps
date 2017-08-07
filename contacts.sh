@@ -1,6 +1,6 @@
 #!/bin/bash
 
-FILEPATH=$(find contacts/system/priv-app/GoogleContacts -name com.*.apk | sort)
+APKLIST=$(find contacts/optional/apkbin -name com.*.apk | sort)
 FILENAME=GoogleContacts.apk
 INDIR=contacts
 NAME=gapps-contacts
@@ -18,11 +18,12 @@ echo "Updating "$INDIR" on $DATE for lollipop, marshmallow, and nougat" | tout
 echo "Google Contacts add-on for 5.0.2+ (arm/arm64) (replaces stock contacts)" | tout
 echo "" | tout
 
-if [ ! "$FILEPATH" == "" ]; then
+for FILEPATH in $APKLIST ; do
   DIR=$(dirname "${FILEPATH}")
   FILE=${FILEPATH##*/}
   NOEXT=${FILE%\.*}
 
+  cd "$BASEDIR"
   cd "$DIR"
 
   if [ ! "$FILE" == "" ]; then
@@ -39,6 +40,6 @@ if [ ! "$FILEPATH" == "" ]; then
     echo "minAPI/DPI: $APIVER" | tout
     echo "" | tout
   fi
-fi
+done
 
 ./makezipsign.sh "$INDIR" "$NAME" "$VER"
