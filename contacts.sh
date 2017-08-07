@@ -34,8 +34,6 @@ for FILEPATH in $APKLIST ; do
     VERSION=${VERSION#*_}
     APIVER=$(echo ${FILE#*_min} | cut -d "_" -f 1)
 
-    cd "$BASEDIR"
-
     echo "Version: $VERSION" | tout
     echo "minAPI/DPI: $APIVER" | tout
     echo "" | tout
