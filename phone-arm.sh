@@ -14,7 +14,7 @@ function tout {
 }
 
 echo "" | tout
-echo "Updating "$INDIR" on $DATE marshmallow, and nougat" | tout
+echo "Updating "$INDIR" on $DATE for marshmallow, and nougat" | tout
 echo "Google Phone add-on for 6.0.0+ (arm) (replaces stock dialer) *must be set as default dialer*" | tout
 echo "" | tout
 
