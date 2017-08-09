@@ -40,4 +40,5 @@ for FILEPATH in $APKLIST ; do
   fi
 done
 
+cd "$BASEDIR"
 ./makezipsign.sh "$INDIR" "$NAME" "$VER"
