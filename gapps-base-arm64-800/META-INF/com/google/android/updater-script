@@ -1,0 +1,48 @@
+ui_print("***********************************************");
+ui_print("   Google Apps Base for Android 8.0.0 arm64    ");
+ui_print("***********************************************");
+
+ui_print("Mounting system.");
+run_program("/sbin/busybox", "mount", "/system");
+run_program("/sbin/mount", "-o", "remount,rw", "/system", "/system");
+show_progress(1, 15);
+
+ui_print("Cleaning system.");
+delete_recursive("/system/app/BrowserProviderProxy","/system/app/FaceLock","/system/app/GoogleContactsSyncAdapter","/system/app/GoogleExtShared","/system/app/PartnerBookmarksProvider","/system/priv-app/ConfigUpdater","/system/priv-app/GmsCoreSetupPrebuilt","/system/priv-app/GoogleBackupTransport","/system/priv-app/GoogleExtServices","/system/priv-app/GoogleFeedback","/system/priv-app/GoogleLoginService","/system/priv-app/GoogleOneTimeInitializer","/system/priv-app/GooglePartnerSetup","/system/priv-app/GoogleServicesFramework","/system/priv-app/Phonesky","/system/priv-app/PrebuiltGmsCore","/system/priv-app/SetupWizard");
+
+ui_print("Installing files.");
+run_program("/sbin/mkdir", "/tmp/config");
+run_program("/sbin/mkdir", "/tmp/dialer");
+run_program("/sbin/mkdir", "/tmp/face");
+run_program("/sbin/mkdir", "/tmp/gms");
+run_program("/sbin/mkdir", "/tmp/setup");
+package_extract_dir("optional/config", "/tmp/config");
+package_extract_dir("optional/dialer", "/tmp/dialer");
+package_extract_dir("optional/face", "/tmp/face");
+package_extract_dir("optional/setup", "/tmp/setup");
+package_extract_dir("scripts", "/tmp");
+package_extract_dir("system", "/system");
+set_perm(0, 0, 0777, "/tmp/install-optional.sh");
+set_perm(0, 0, 0777, "/tmp/install-core-0.sh");
+run_program("/tmp/install-optional.sh", "");
+package_extract_dir("optional/gms/0", "/tmp/gms");
+run_program("/tmp/install-core-0.sh", "");
+show_progress(1, 15);
+
+ui_print("Setting metadata.");
+set_metadata_recursive("/system/addon.d", "uid", 0, "gid", 0, "dmode", 0755, "fmode", 0755, "capabilities", 0x0, "selabel", "u:object_r:system_file:s0");
+set_metadata_recursive("/system/app", "uid", 0, "gid", 0, "dmode", 0755, "fmode", 0644, "capabilities", 0x0, "selabel", "u:object_r:system_file:s0");
+set_metadata_recursive("/system/priv-app", "uid", 0, "gid", 0, "dmode", 0755, "fmode", 0644, "capabilities", 0x0, "selabel", "u:object_r:system_file:s0");
+set_metadata_recursive("/system/etc/permissions", "uid", 0, "gid", 0, "dmode", 0755, "fmode", 0644, "capabilities", 0x0, "selabel", "u:object_r:system_file:s0");
+set_metadata_recursive("/system/etc/preferred-apps", "uid", 0, "gid", 0, "dmode", 0755, "fmode", 0644, "capabilities", 0x0, "selabel", "u:object_r:system_file:s0");
+set_metadata_recursive("/system/etc/sysconfig", "uid", 0, "gid", 0, "dmode", 0755, "fmode", 0644, "capabilities", 0x0, "selabel", "u:object_r:system_file:s0");
+set_metadata("/system/etc/g.prop", "uid", 0, "gid", 0, "mode", 0644, "capabilities", 0x0, "selabel", "u:object_r:system_file:s0");
+set_metadata_recursive("/system/framework", "uid", 0, "gid", 0, "dmode", 0755, "fmode", 0644, "capabilities", 0x0, "selabel", "u:object_r:system_file:s0");
+set_metadata_recursive("/system/lib", "uid", 0, "gid", 0, "dmode", 0755, "fmode", 0644, "capabilities", 0x0, "selabel", "u:object_r:system_file:s0");
+set_metadata_recursive("/system/lib64", "uid", 0, "gid", 0, "dmode", 0755, "fmode", 0644, "capabilities", 0x0, "selabel", "u:object_r:system_file:s0");
+
+ui_print("Unmounting system.");
+run_program("/sbin/busybox", "umount", "/system");
+
+ui_print("Done.");
+
