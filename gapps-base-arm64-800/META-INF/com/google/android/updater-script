@@ -8,7 +8,7 @@ run_program("/sbin/mount", "-o", "remount,rw", "/system", "/system");
 show_progress(1, 15);
 
 ui_print("Cleaning system.");
-delete_recursive("/system/app/BrowserProviderProxy","/system/app/FaceLock","/system/app/GoogleContactsSyncAdapter","/system/app/GoogleExtShared","/system/app/PartnerBookmarksProvider","/system/priv-app/ConfigUpdater","/system/priv-app/GmsCoreSetupPrebuilt","/system/priv-app/GoogleBackupTransport","/system/priv-app/GoogleExtServices","/system/priv-app/GoogleFeedback","/system/priv-app/GoogleLoginService","/system/priv-app/GoogleOneTimeInitializer","/system/priv-app/GooglePartnerSetup","/system/priv-app/GoogleServicesFramework","/system/priv-app/Phonesky","/system/priv-app/PrebuiltGmsCore","/system/priv-app/SetupWizard");
+delete_recursive("/system/app/BrowserProviderProxy","/system/app/FaceLock","/system/app/GoogleContactsSyncAdapter","/system/app/GoogleExtShared","/system/app/PartnerBookmarksProvider","/system/priv-app/ConfigUpdater","/system/priv-app/GmsCoreSetupPrebuilt","/system/priv-app/GoogleBackupTransport","/system/priv-app/GoogleExtServices","/system/priv-app/GoogleFeedback","/system/priv-app/GoogleOneTimeInitializer","/system/priv-app/GooglePartnerSetup","/system/priv-app/GoogleServicesFramework","/system/priv-app/Phonesky","/system/priv-app/PrebuiltGmsCore","/system/priv-app/SetupWizard");
 
 ui_print("Installing files.");
 run_program("/sbin/mkdir", "/tmp/config");
