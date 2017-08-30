@@ -26,20 +26,63 @@ if [ ! "$APKPATH" == "" ]; then
   cd "$DIR"
 
   if [ ! "$FILE" == "" ]; then
-    rm "$APKNAME"
-    mv "$FILE" "$APKNAME"
 
     VERSION=${FILE%_min*}
     VERSION=${VERSION#*_}
     APIVER=$(echo ${FILE#*_min} | cut -d "_" -f 1)
 
+    echo "Extracting libraries from apk"
+    if [ -e "$APKNAME" ]; then
+      unzip -o "$APKNAME" lib/* -d ./
+      mv lib lib.old
+    fi
+    unzip -o "$FILE" lib/* -d ./
 
-    cd "$BASEDIR"
-    echo "Updating Google Play Store" | tout
-    echo "Version: $VERSION" | tout
-    echo "minAPI/DPI: $APIVER" | tout
-    echo "" | tout
+    if [ ! -d lib/armeabi-v7a ] && [ ! -d lib/armeabi ] ; then
+      echo "Libraries are not for arm"
+    else
+      if [ -d lib.old/armeabi-v7a ] ; then
+        mkdir ./lib.old/arm
+        mv ./lib.old/armeabi-v7a/* ./lib.old/arm/
+        rmdir ./lib.old/armeabi-v7a
+      else
+        mkdir ./lib.old/arm
+        mv ./lib.old/armeabi/* ./lib.old/arm/
+        rmdir ./lib.old/armeabi
+      fi
+
+      if [ -d lib/armeabi-v7a ] ; then
+        #echo "Deleting lib directory inside apk file"
+        zip "$FILE" -d ./lib/armeabi-v7a/*
+        #echo "Inserting decompressed libraries inside apk file"
+        zip -r -D -Z store -b ./ "$FILE" ./lib/armeabi-v7a/
+        mkdir ./lib/arm
+        mv ./lib/armeabi-v7a/* ./lib/arm/
+        rmdir ./lib/armeabi-v7a
+      else
+        #echo "Deleting lib directory inside apk file"
+        zip "$FILE" -d ./lib/armeabi/*
+        #echo "Inserting decompressed libraries inside apk file"
+        zip -r -D -Z store -b ./ "$FILE" ./lib/armeabi/
+        mkdir ./lib/arm
+        mv ./lib/armeabi/* ./lib/arm/
+        rmdir ./lib/armeabi
+      fi
+
+      echo "Aligning apk and libraries for 32bit systems"
+      zipalign -f -p 4 "$FILE" "$NOEXT"-aligned.apk
+      rm "$FILE"
+      mv "$NOEXT"-aligned.apk "$APKNAME"
+      echo "Libraries aligned."
+
+
+      echo "Updating Google Play Store" | tout
+      echo "Version: $VERSION" | tout
+      echo "minAPI/DPI: $APIVER" | tout
+      echo "" | tout
+    fi
   fi
+  cd "$BASEDIR"
 fi
 
 for FILEPATH in $APKLIST ; do
