@@ -105,7 +105,6 @@ if [ ! "$APKPATH" == "" ]; then
   cd "$BASEDIR"
 fi
 
-
 for FILEPATH in $APKLIST ; do
 
   DIR=$(dirname "${FILEPATH}")

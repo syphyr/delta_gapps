@@ -100,7 +100,7 @@ if [ ! "$APKPATH" == "" ]; then
     if [ -d lib.old ]; then
       rm -rf lib.old
     fi
-    
+
   fi
   cd "$BASEDIR"
 fi

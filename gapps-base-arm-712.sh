@@ -74,13 +74,28 @@ if [ ! "$APKPATH" == "" ]; then
       rm "$FILE"
       mv "$NOEXT"-aligned.apk "$APKNAME"
       echo "Libraries aligned."
-
-
-      echo "Updating Google Play Store" | tout
-      echo "Version: $VERSION" | tout
-      echo "minAPI/DPI: $APIVER" | tout
-      echo "" | tout
     fi
+
+    echo "Updating Google Play Store" | tout
+    echo "Version: $VERSION" | tout
+    echo "minAPI/DPI: $APIVER" | tout
+    echo "" | tout
+
+    if [ -d lib ] && [ -d lib.old ]; then
+      diff -rq lib.old lib | grep Only | tout
+    fi
+
+    echo "" | tout
+    echo "Removing extracted files."
+
+    if [ -d lib ]; then
+      rm -rf lib
+    fi
+
+    if [ -d lib.old ]; then
+      rm -rf lib.old
+    fi
+
   fi
   cd "$BASEDIR"
 fi
@@ -125,7 +140,7 @@ for FILEPATH in $APKLIST ; do
       zip -r -D -Z store -b ./ "$FILE" ./lib/armeabi-v7a/
       mkdir ./lib/arm
       mv ./lib/armeabi-v7a/* ./lib/arm/
-      rmdir  ./lib/armeabi-v7a
+      rmdir ./lib/armeabi-v7a
     else
       #echo "Deleting lib directory inside apk file"
       zip "$FILE" -d ./lib/armeabi/*
