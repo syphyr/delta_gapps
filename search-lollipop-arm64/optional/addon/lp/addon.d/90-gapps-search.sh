@@ -8,13 +8,15 @@ list_files() {
 cat <<EOF
 priv-app/Velvet/Velvet.apk
 priv-app/Velvet/lib/arm64/libccl.so
-priv-app/Velvet/lib/arm64/libcronet.61.0.3160.0.so
+priv-app/Velvet/lib/arm64/libcronet.61.0.3163.27.so
 priv-app/Velvet/lib/arm64/libframesequence.so
 priv-app/Velvet/lib/arm64/libgoogle_speech_jni.so
 priv-app/Velvet/lib/arm64/libgoogle_speech_micro_jni.so
 priv-app/Velvet/lib/arm64/libhere_allpurpose.so
+priv-app/Velvet/lib/arm64/libhere_blue_component.so
 priv-app/Velvet/lib/arm64/libnativecrashreporter.so
 priv-app/Velvet/lib/arm64/liboffline_actions_jni.so
+priv-app/Velvet/lib/arm64/libsbcdecoder_jni.so
 EOF
 }
 
