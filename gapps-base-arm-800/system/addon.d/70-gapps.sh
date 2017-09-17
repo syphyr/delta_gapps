@@ -62,8 +62,10 @@ case "$1" in
   ;;
   post-restore)
     rm -rf /system/app/BrowserProviderProxy
+    rm -rf /system/app/ExtShared
     rm -rf /system/app/PartnerBookmarksProvider
     rm -rf /system/app/Provision
+    rm -rf /system/priv-app/ExtServices
     chmod 755 /system/app/GoogleContactsSyncAdapter
     chmod 755 /system/app/GoogleExtShared
     chmod 755 /system/etc/preferred-apps
