@@ -8,7 +8,7 @@ list_files() {
 cat <<EOF
 app/GooglePhotos/GooglePhotos.apk
 app/GooglePhotos/lib/arm64/libcrashreporterer.so
-app/GooglePhotos/lib/arm64/libcronet.61.0.3163.27.so
+app/GooglePhotos/lib/arm64/libcronet.63.0.3223.7.so
 app/GooglePhotos/lib/arm64/libfilterframework_jni.so
 app/GooglePhotos/lib/arm64/libflacJNI.so
 app/GooglePhotos/lib/arm64/libframesequence.so
