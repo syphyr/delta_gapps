@@ -12,7 +12,6 @@ app/GoogleDrive/lib/arm64/libdocscanner_image.so
 app/GoogleDrive/lib/arm64/libfoxit.so
 app/GoogleDrive/lib/arm64/librawpixeldata_native.so
 app/GoogleDrive/lib/arm64/librectifier.so
-app/GoogleDrive/lib/arm64/libwebp_android.so
 EOF
 }
 

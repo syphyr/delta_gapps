@@ -12,7 +12,6 @@ lib64/libdocscanner_image.so
 lib64/libfoxit.so
 lib64/librawpixeldata_native.so
 lib64/librectifier.so
-lib64/libwebp_android.so
 EOF
 }
 
