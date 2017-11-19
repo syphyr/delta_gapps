@@ -8,6 +8,7 @@ list_files() {
 cat <<EOF
 app/LatinIMEGoogle.apk
 lib/libjni_delight5decoder.so
+lib/libmozc.so
 lib/libtensorflow_jni.so
 EOF
 }
