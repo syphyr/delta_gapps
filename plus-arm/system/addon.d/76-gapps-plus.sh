@@ -8,7 +8,7 @@ list_files() {
 cat <<EOF
 app/GooglePlus/GooglePlus.apk
 app/GooglePlus/lib/arm/libcrashreporterer.so
-app/GooglePlus/lib/arm/libcronet.59.0.3071.25.so
+app/GooglePlus/lib/arm/libcronet.64.0.3275.3.so
 app/GooglePlus/lib/arm/libframesequence.so
 app/GooglePlus/lib/arm/libraisr-jni.so
 app/GooglePlus/lib/arm/libwebp_android.so
