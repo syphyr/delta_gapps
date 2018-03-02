@@ -11,6 +11,7 @@ app/FaceLock/FaceLock.apk
 lib/libfacenet.so
 lib/libfilterpack_facedetect.so
 lib/libfrsdk.so
+vendor/lib/libprotobuf-cpp-hack.so
 EOF
 }
 
