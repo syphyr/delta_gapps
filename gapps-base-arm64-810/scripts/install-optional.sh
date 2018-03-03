@@ -55,20 +55,20 @@ elif [ -f /sdcard/.addsetupwizard ]; then
   mkdir /system/priv-app/SetupWizard
   if [ ! "$TYPE" == "" ]; then
     echo "Tablet detected."
-    cp -f /tmp/setup/priv-app/SetupWizard/SetupWizard.apk /system/priv-app/SetupWizard/
+    cp -f /tmp/setup/tablet/priv-app/SetupWizard/SetupWizard.apk /system/priv-app/SetupWizard/
   else
     echo "Phone detected."
-    cp -f /tmp/setup/priv-app/SetupWizard/SetupWizard.apk /system/priv-app/SetupWizard/
+    cp -f /tmp/setup/phone/priv-app/SetupWizard/SetupWizard.apk /system/priv-app/SetupWizard/
   fi
 else
   rm -rf /system/app/Provision
   mkdir /system/priv-app/SetupWizard
   if [ ! "$TYPE" == "" ]; then
     echo "Tablet detected."
-    cp -f /tmp/setup/priv-app/SetupWizard/SetupWizard.apk /system/priv-app/SetupWizard/
+    cp -f /tmp/setup/tablet/priv-app/SetupWizard/SetupWizard.apk /system/priv-app/SetupWizard/
   else
     echo "Phone detected."
-    cp -f /tmp/setup/priv-app/SetupWizard/SetupWizard.apk /system/priv-app/SetupWizard/
+    cp -f /tmp/setup/phone/priv-app/SetupWizard/SetupWizard.apk /system/priv-app/SetupWizard/
   fi
 fi
 rm -rf /tmp/setup
