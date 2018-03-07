@@ -3,7 +3,7 @@ ui_print("   Google Apps Base for Android 8.1.0 arm64    ");
 ui_print("***********************************************");
 
 ui_print("Mounting system.");
-run_program("/sbin/busybox", "mount", "/system");
+run_program("/sbin/mount", "/system");
 run_program("/sbin/mount", "-o", "remount,rw", "/system", "/system");
 show_progress(1, 15);
 
@@ -48,7 +48,7 @@ set_metadata_recursive("/system/lib", "uid", 0, "gid", 0, "dmode", 0755, "fmode"
 set_metadata_recursive("/system/lib64", "uid", 0, "gid", 0, "dmode", 0755, "fmode", 0644, "capabilities", 0x0, "selabel", "u:object_r:system_file:s0");
 
 ui_print("Unmounting system.");
-run_program("/sbin/busybox", "umount", "/system");
+run_program("/sbin/umount", "/system");
 
 ui_print("Done.");
 

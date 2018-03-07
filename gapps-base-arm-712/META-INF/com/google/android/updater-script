@@ -3,7 +3,7 @@ ui_print("    Google Apps Base for Android 7.1.2 arm     ");
 ui_print("***********************************************");
 
 ui_print("Mounting system.");
-run_program("/sbin/busybox", "mount", "/system");
+run_program("/sbin/mount", "/system");
 run_program("/sbin/mount", "-o", "remount,rw", "/system", "/system");
 show_progress(1, 15);
 
@@ -54,7 +54,7 @@ set_metadata("/system/vendor/lib", "uid", 0, "gid", 2000, "mode", 0755, "capabil
 set_metadata("/system/vendor/lib/libfrsdk.so", "uid", 0, "gid", 0, "mode", 0644, "capabilities", 0x0, "selabel", "u:object_r:system_file:s0");
 
 ui_print("Unmounting system.");
-run_program("/sbin/busybox", "umount", "/system");
+run_program("/sbin/umount", "/system");
 
 ui_print("Done.");
 
