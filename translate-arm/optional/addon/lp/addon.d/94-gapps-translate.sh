@@ -7,10 +7,8 @@
 list_files() {
 cat <<EOF
 app/GoogleTranslate/GoogleTranslate.apk
-app/GoogleTranslate/lib/arm/libclientvision.so
 app/GoogleTranslate/lib/arm/libimageutils.so
 app/GoogleTranslate/lib/arm/libtranslate.so
-app/GoogleTranslate/lib/arm/libzxing.so
 EOF
 }
 
