@@ -15,7 +15,7 @@ function tout {
 
 echo "" | tout
 echo "Updating "$INDIR" on $DATE for kitkat, lollipop, marshmallow, and nougat" | tout
-echo "Google Device Manager add-on for 4.4.4+ (arm/arm64)" | tout
+echo "Google Device Manager (Find My Device) add-on for 4.4.4+ (arm/arm64)" | tout
 echo "" | tout
 
 if [ ! "$FILEPATH" == "" ]; then
