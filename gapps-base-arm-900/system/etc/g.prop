@@ -1,0 +1,6 @@
+# begin addon properties
+ro.addon.type=gapps-base-arm
+ro.addon.platform=p
+ro.addon.version=20180902-1
+ro.addon.minimumversion=9.0.0
+# end addon properties
