@@ -47,25 +47,7 @@ rm -rf /tmp/face
 
 TYPE=$(grep ro.build.characteristics /system/build.prop | grep tablet);
 
-if [ -f /sdcard/.removesetupwizard ]; then
-  sed -i '/Provision/ d' /system/addon.d/70-gapps.sh
-  sed -i '/SetupWizard/ d' /system/addon.d/70-gapps.sh
-  sed -i '/libbarhopper/ d' /system/addon.d/70-gapps.sh
-elif [ -f /sdcard/.addsetupwizard ]; then
-  sed -i '/Provision/ d' /system/addon.d/70-gapps.sh
-  mkdir -p /system/priv-app/SetupWizard/lib/arm64
-  if [ ! "$TYPE" == "" ]; then
-    echo "Tablet detected."
-    cp -f /tmp/setup/priv-app/SetupWizard/SetupWizard.apk /system/priv-app/SetupWizard/
-    cp -f /tmp/setup/lib64/libbarhopper.so /system/lib64/
-    ln -s /system/lib64/libbarhopper.so /system/priv-app/SetupWizard/lib/arm64/libbarhopper.so
-  else
-    echo "Phone detected."
-    cp -f /tmp/setup/priv-app/SetupWizard/SetupWizard.apk /system/priv-app/SetupWizard/
-    cp -f /tmp/setup/lib64/libbarhopper.so /system/lib64/
-    ln -s /system/lib64/libbarhopper.so /system/priv-app/SetupWizard/lib/arm64/libbarhopper.so
-  fi
-else
+if [ -f /sdcard/.addsetupwizard ]; then
   rm -rf /system/app/Provision
   mkdir -p /system/priv-app/SetupWizard/lib/arm64
   if [ ! "$TYPE" == "" ]; then
@@ -79,5 +61,9 @@ else
     cp -f /tmp/setup/lib64/libbarhopper.so /system/lib64/
     ln -s /system/lib64/libbarhopper.so /system/priv-app/SetupWizard/lib/arm64/libbarhopper.so
   fi
+else
+  sed -i '/Provision/ d' /system/addon.d/70-gapps.sh
+  sed -i '/SetupWizard/ d' /system/addon.d/70-gapps.sh
+  sed -i '/libbarhopper/ d' /system/addon.d/70-gapps.sh
 fi
 rm -rf /tmp/setup
