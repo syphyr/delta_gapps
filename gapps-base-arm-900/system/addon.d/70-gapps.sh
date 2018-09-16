@@ -13,12 +13,11 @@ etc/permissions/com.google.android.dialer.support.xml
 etc/permissions/com.google.android.maps.xml
 etc/permissions/com.google.android.media.effects.xml
 etc/permissions/com.google.widevine.software.drm.xml
+etc/permissions/privapp-permissions-google.xml
 etc/preferred-apps/google.xml
 etc/sysconfig/google_build.xml
-etc/sysconfig/google_vr_build.xml
 etc/sysconfig/google.xml
-etc/sysconfig/marlin_common.xml
-etc/sysconfig/whitelist_com.android.omadm.service.xml
+etc/sysconfig/google-hiddenapi-package-whitelist.xml
 framework/com.google.android.dialer.support.jar
 framework/com.google.android.maps.jar
 framework/com.google.android.media.effects.jar
