@@ -12,7 +12,9 @@ if grep ro.build.version.release /system/build.prop | grep -qE '5.0.|5.1.'; then
   mkdir -p ./lib/arm64
   mv ./lib/arm64-v8a/* ./lib/arm64/
   rmdir ./lib/arm64-v8a
+  rm -rf ./lib/armeabi-v7a
   /tmp/zip "$APKFILE" -d ./lib/arm64-v8a/*
+  /tmp/zip "$APKFILE" -d ./lib/armeabi-v7a/*
   /tmp/zipalign -f 4 "$APKFILE" aligned.apk
   mv aligned.apk "$APKFILE"
   cp -a /tmp/addon/lp/* /system/
